@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 8 Science Portal | Mr. Drury</title>
+    <style>
+        :root { --primary-color: #0284c7; --bg-color: #f8fafc; --sidebar-bg: #0f172a; --card-bg: #ffffff; --border-color: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { display: flex; min-height: 100vh; background-color: var(--bg-color); color: #334155; }
+        aside { width: 270px; background: var(--sidebar-bg); color: white; padding: 2rem 1rem; position: fixed; height: 100vh; }
+        aside h2 { color: #f8fafc; font-size: 1.25rem; }
+        aside p { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+        nav a { color: #94a3b8; text-decoration: none; display: block; padding: 0.6rem 0.85rem; border-radius: 6px; }
+        nav a:hover, nav a.active { background: var(--primary-color); color: white; }
+        main { margin-left: 270px; padding: 2.5rem 3rem; width: calc(100% - 270px); max-width: 1100px; }
+        section { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 2rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+        .act-card { background: #f8fafc; border: 1px solid var(--border-color); border-left: 4px solid var(--primary-color); padding: 1.5rem; border-radius: 8px; }
+        .btn { display: inline-block; background: var(--primary-color); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 1rem; }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <aside>
+        <h2>Grade 8 Science</h2>
+        <p>Lab &amp; Mastery Portal</p>
+        <nav>
+            <a href="#" class="active">Activity Menu</a>
+            <a href="index.html" style="margin-top:2rem; background:#334155; color:white;">⬅️ Back to Main Hub</a>
+        </nav>
+    </aside>
+    <main>
+        <section>
+            <h1>Grade 8 Science Portal ⚙️</h1>
+            <p>Welcome Grade 8 scientists! Select a workshop module or virtual lab simulation below.</p>
+            
+            <div class="grid-2">
+                <div class="act-card">
+                    <h3>🧪 Scientific Method Workshop &amp; Sim Labs</h3>
+                    <p>Complete variable sorting, audit mock student reports, submit your exit ticket, and unlock 3 virtual experiment simulators.</p>
+                    <a href="grade8.html" class="btn">Launch Science Hub 🚀</a>
+                </div>
+
+                <div class="act-card">
+                    <h3>📄 Exemplar Lab Report Guide</h3>
+                    <p>Review requirements, variables, data table formatting, graphing rules, and CER conclusion templates.</p>
+                    <a href="grade8.html#lab-audit" class="btn">View Report Guide 📖</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
