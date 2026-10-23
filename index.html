@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Division Science | Mr. Drury</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --primary-hover: #0369a1;
+            --bg-color: #f8fafc;
+            --sidebar-bg: #0f172a;
+            --sidebar-text: #94a3b8;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0284c7;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 270px;
+            background-color: var(--sidebar-bg);
+            color: white;
+            padding: 2rem 1rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        aside h2 {
+            font-size: 1.25rem;
+            color: #f8fafc;
+            margin-bottom: 0.25rem;
+        }
+
+        aside p.subtitle {
+            font-size: 0.85rem;
+            color: var(--sidebar-text);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.4rem;
+        }
+
+        nav a {
+            color: var(--sidebar-text);
+            text-decoration: none;
+            display: block;
+            padding: 0.6rem 0.85rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 270px;
+            width: calc(100% - 270px);
+            padding: 2.5rem 3rem;
+            max-width: 1100px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .welcome-hero {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .welcome-text {
+            flex: 1;
+        }
+
+        .scientist-img {
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .grade-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grade-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .grade-card h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .grade-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-portal {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-portal:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.25rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 850px) {
+            body { flex-direction: column; }
+            aside { width: 100%; height: auto; position: relative; }
+            main { margin-left: 0; width: 100%; padding: 1.5rem; }
+            .welcome-hero { flex-direction: column-reverse; text-align: center; }
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <h2>Senior Science</h2>
+        <p class="subtitle">Mr. Drury's Classroom</p>
+        <nav>
+            <ul>
+                <li><a href="#welcome" class="active">Welcome</a></li>
+                <li><a href="#grades">Grade Portals</a></li>
+                <li><a href="#resources">Class Resources</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Welcome Hero Section -->
+        <section id="welcome">
+            <span class="badge">Bialik Senior Division</span>
+            <div class="welcome-hero">
+                <div class="welcome-text">
+                    <h1>Welcome to Senior Division Science with Mr. Drury! 🔬</h1>
+                    <p>Step into our digital science hub! Here you will find links to information on each unit, interactive brain games, virtual lab simulations, skill-building activities, and classroom reflection tools.</p>
+                    <p>Select your grade level below to access your class portal and get started!</p>
+                </div>
+                <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcR-aKb4BPA3rii5C6OgNcH0KRLmSex5X021Zf9BbfeNzy7xvESt4wgA9QosQJ6Sw4F-nLZEv5bQ86jleTs" alt="Scientist illustration pointing to lesson content" class="scientist-img">
+            </div>
+        </section>
+
+        <!-- Grade Portals -->
+        <section id="grades">
+            <h2>Select Your Science Class Portal 🚀</h2>
+            <div class="grid-3">
+                
+                <!-- Grade 6 -->
+                <div class="grade-card" style="border-top: 4px solid var(--accent-purple);">
+                    <div>
+                        <h3>Grade 6</h3>
+                        <p>Learning Skills & Strategies, Brain Superpowers, Executive Functioning, and Cognitive Games.</p>
+                    </div>
+                    <a href="grade6.html" class="btn-portal" style="background-color: var(--accent-purple);">Enter Grade 6 Hub</a>
+                </div>
+
+                <!-- Grade 7 -->
+                <div class="grade-card" style="border-top: 4px solid var(--accent-amber);">
+                    <div>
+                        <h3>Grade 7</h3>
+                        <p>Ecosystems, Form and Function, Pure Substances & Mixtures, and Heat in the Environment.</p>
+                    </div>
+                    <a href="grade7.html" class="btn-portal" style="background-color: var(--accent-amber);">Enter Grade 7 Hub</a>
+                </div>
+
+                <!-- Grade 8 -->
+                <div class="grade-card" style="border-top: 4px solid var(--primary-color);">
+                    <div>
+                        <h3>Grade 8</h3>
+                        <p>Scientific Method Mastery, Virtual Sim Labs, Data Error Forensics, and Lab Report Guides.</p>
+                    </div>
+                    <a href="grade8.html" class="btn-portal">Enter Grade 8 Hub</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- General Info & Resources -->
+        <section id="resources">
+            <h2>Classroom Hub Overview 💡</h2>
+            <div class="info-card">
+                <h3>What You'll Find On Your Class Portal:</h3>
+                <ul style="margin-left: 1.25rem; margin-top: 0.5rem;">
+                    <li><strong>Unit Outlines & Notes:</strong> Access key concepts, vocabulary, and study guides.</li>
+                    <li><strong>Interactive Games & Arcades:</strong> Test your knowledge with custom memory, variable-sorting, and reaction games.</li>
+                    <li><strong>Virtual Simulation Labs:</strong> Conduct physics, chemistry, and thermal energy experiments online.</li>
+                    <li><strong>Exit Tickets & Journal Submission:</strong> Send progress updates and reflections directly to Mr. Drury.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scroll active highlight
+        window.addEventListener('scroll', function() {
+            let current = '';
+            document.querySelectorAll('section').forEach(function(sec) {
+                if(pageYOffset >= sec.offsetTop - 120) {
+                    current = sec.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('nav a').forEach(function(a) {
+                if(a.getAttribute('href').startsWith('#')) {
+                    a.classList.remove('active');
+                    if(a.getAttribute('href') === '#' + current) {
+                        a.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
